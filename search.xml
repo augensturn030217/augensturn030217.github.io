@@ -8,7 +8,7 @@
       <link href="/2023/07/30/concert/"/>
       <url>/2023/07/30/concert/</url>
       
-        <content type="html"><![CDATA[<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"video":{"url":"/img/video/cangjie.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+        <content type="html"><![CDATA[<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"video":{"url":"https://github.com/augensturn030217/augensturn030217.github.io/blob/main/img/video/cangjie.mp4"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
       
       
       <categories>
