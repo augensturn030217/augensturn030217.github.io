@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>近期生活(1)</title>
+      <link href="/2023/08/22/live/"/>
+      <url>/2023/08/22/live/</url>
+      
+        <content type="html"><![CDATA[<h1 id="最近真的在持续性摆烂"><a href="#最近真的在持续性摆烂" class="headerlink" title="最近真的在持续性摆烂"></a>最近真的在持续性摆烂</h1><p>没有什么学习的动力，没有什么工作的动力，只想到了以后赚钱的生活，想到了赚到了钱的生活，把以后的美好都想了一遍，但自己依然处于一个什么都没开始的状态，有点迷茫，但又不知道应该干嘛，可以干嘛。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>栈和队列</title>
+      <link href="/2023/08/19/suanfa/stack/"/>
+      <url>/2023/08/19/suanfa/stack/</url>
+      
+        <content type="html"><![CDATA[<h1 id="链表实现队列和栈"><a href="#链表实现队列和栈" class="headerlink" title="链表实现队列和栈"></a>链表实现队列和栈</h1><p>先看栈，我们使用链表的头部作为栈顶，链表的尾部作为栈底。实现比较简单，直接上代码：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span>&#123;</span><br><span class="line">    list.addFirst(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.removeFirst();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.getFirst();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>链表实现队列：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Node head, tail;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enqueue</span><span class="params">(E e)</span>&#123;</span><br><span class="line">    <span class="comment">// 当tail为空时，也就意味着head也为空</span></span><br><span class="line">    <span class="keyword">if</span>(tail == <span class="literal">null</span>)&#123;</span><br><span class="line">        tail = <span class="keyword">new</span> <span class="title class_">Node</span>(e);</span><br><span class="line">        head = tail;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        tail.next = <span class="keyword">new</span> <span class="title class_">Node</span>(e);</span><br><span class="line">        tail = tail.next;</span><br><span class="line">    &#125;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">dequeue</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Cannot dequeue from an empty queue.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">Node</span> <span class="variable">retNode</span> <span class="operator">=</span> head;</span><br><span class="line">    head = head.next;</span><br><span class="line">    retNode.next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 特殊情况：链表中只有一个元素，若删除，则为空</span></span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">null</span>)&#123;</span><br><span class="line">        tail = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    size--;</span><br><span class="line">    <span class="keyword">return</span> retNode.e;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">getFront</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isEmpty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Cannot dequeue from an empty queue.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head.e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 栈 </tag>
+            
+            <tag> 队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计网 1</title>
       <link href="/2023/08/16/computer%20network/chapter1/"/>
       <url>/2023/08/16/computer%20network/chapter1/</url>
@@ -31,7 +83,7 @@
     
     
     <entry>
-      <title>arraylist</title>
+      <title>数组算法</title>
       <link href="/2023/08/12/suanfa/arraylist/"/>
       <url>/2023/08/12/suanfa/arraylist/</url>
       
@@ -58,7 +110,7 @@
     
     
     <entry>
-      <title>链表2</title>
+      <title>链表算法与双指针</title>
       <link href="/2023/08/05/suanfa/arraylist-linkedlist2/"/>
       <url>/2023/08/05/suanfa/arraylist-linkedlist2/</url>
       
@@ -85,7 +137,7 @@
     
     
     <entry>
-      <title>链表1</title>
+      <title>动手实现数组与链表算法</title>
       <link href="/2023/08/04/suanfa/arraylist_linkedlist/"/>
       <url>/2023/08/04/suanfa/arraylist_linkedlist/</url>
       
