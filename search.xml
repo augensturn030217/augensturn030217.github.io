@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>线性表的基本操作</title>
+      <link href="/2023/10/20/data_structure/exersics/"/>
+      <url>/2023/10/20/data_structure/exersics/</url>
+      
+        <content type="html"><![CDATA[<h1 id="顺序表的基本操作"><a href="#顺序表的基本操作" class="headerlink" title="顺序表的基本操作"></a>顺序表的基本操作</h1><ol><li><p>从顺序表中删除具有最小值的元素（假设唯一）并由函数返回被删元素的值。空出的位置由最后一个元素填补，若顺序表为空，则显示出错信息并退出运行。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Bool <span class="title function_">DelMin</span> <span class="params">(SqList &amp;L , ElemType &amp;min)</span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    min = L.Data[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span>(L.length==<span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; L.length;i++)</span><br><span class="line">        <span class="keyword">if</span>(min &lt; L.Data[i])&#123;</span><br><span class="line">            min == L.Data[i];</span><br><span class="line">            num = i;</span><br><span class="line">        &#125;</span><br><span class="line">    L.Data[num] = L.Data[L.length<span class="number">-1</span>];</span><br><span class="line">    L.length--;</span><br><span class="line">    <span class="keyword">return</span> ture;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>没汁一个高效算法，将順序表L的所有元素逆置，要求算法的空间复杂度为 O（1）</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">reverse</span><span class="params">(SqList &amp;L)</span>&#123;</span><br><span class="line">    <span class="type">int</span> head,last;</span><br><span class="line">    head = <span class="number">0</span>,last = L.length<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(head == last ||head<span class="number">-1</span> == last)&#123;</span><br><span class="line">        ElemType e;</span><br><span class="line">        e = L.Data[head];</span><br><span class="line">        L.Data[head] = L.Data[last];</span><br><span class="line">        L.Data[last] = e;</span><br><span class="line">        head++;last--</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>标准答案</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Reverse</span><span class="params">(Sqlist &amp;L)</span>&#123;</span><br><span class="line">    ElemType temp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;length/<span class="number">2</span>;i++)&#123;</span><br><span class="line">        temp = L.data[i];</span><br><span class="line">        L.data[i] = L.data[L.length-i<span class="number">-1</span>];</span><br><span class="line">        L.data[L.length-i<span class="number">-1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>对长度为n的顺序表L，编写一个时问复杂度为0（n、空间复杂度为Q(1)的算法，该算法删除线性表中所有值为x的数据元素。</p></li></ol><pre><code class="c">coid del_x(Sqlist &amp;L,ElemType x)&#123;    int k = 0,i;    for (i=0;i&lt;L.length;i++)        if(L.data[i]!=x)&#123;            L.data[k] = L.data[i];            k++        &#125;    L.length = k;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 考研，算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>近期生活(3)</title>
       <link href="/2023/09/27/richang/927thinking/"/>
       <url>/2023/09/27/richang/927thinking/</url>
@@ -187,7 +212,7 @@
       <link href="/2023/08/16/computer%20network/chapter1/"/>
       <url>/2023/08/16/computer%20network/chapter1/</url>
       
-        <content type="html"><![CDATA[<p>只学算法太让人头大了，就想着学一个偏理论一点的，大概两天前开始，我的计算机网络跟着湖科大的视频学。<br>看了点视频，不知道是按着：数据结构-&gt;计组-&gt;OS-&gt;计网这个顺序好，还是自己先过一遍好，但是因为目前是对计网比较感兴趣，，又在学java的算法，不好转成c去学数据结构，所以就还是决定先开比较理论的计网，因为这门科目枯燥，记忆点多，分值低，很多人都会放在最后复习，反正也是纠结了好一会啦。</p>]]></content>
+        <content type="html"><![CDATA[<p>只学算法太让人头大了，就想着学一个偏理论一点的，大概两天前开始，我的计算机网络跟着湖科大的视频学。<br>看了点视频，不知道是按着：数据结构-&gt;计组-&gt;OS-&gt;计网这个顺序好，还是自己先过一遍好，但是因为目前是对计网比较感兴趣，，又在学java的算法，不好转成c去学数据结构，所以就还是决定先开比较理论的计网，因为这门科目枯燥，记忆点多，分值低，很多人都会放在最后复习，反正也是纠结了好一会啦。</p><p>2023.10.10<br>粗略学完了一遍啦，但是很多都忘了，而且没怎么做题</p>]]></content>
       
       
       <categories>
