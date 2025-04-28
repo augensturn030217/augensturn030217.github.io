@@ -1,0 +1,581 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Nathen | Nathen</title><meta name="author" content="屿念"><meta name="copyright" content="屿念"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="自习室预约系统功能结构与角色分析根据代码分析，这是一个自习室预约系统的后台管理界面，功能结构清晰，具有完整的权限管理体系。 1. 系统角色结构系统采用基于角色的权限管理，主要角色包括：  系统管理员：拥有全部权限，管理所有功能模块 教师&#x2F;管理人员：管理自习室、学生和预约记录 学生：系统的使用者（在后台可以被管理）  2. 功能层次结构第一层：系统管理层处理系统底层配置和权限管理  用户管">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nathen">
+<meta property="og:url" content="http://example.com/2025/04/02/gruaduate/%E8%8D%89%E7%A8%BF/index.html">
+<meta property="og:site_name" content="Nathen">
+<meta property="og:description" content="自习室预约系统功能结构与角色分析根据代码分析，这是一个自习室预约系统的后台管理界面，功能结构清晰，具有完整的权限管理体系。 1. 系统角色结构系统采用基于角色的权限管理，主要角色包括：  系统管理员：拥有全部权限，管理所有功能模块 教师&#x2F;管理人员：管理自习室、学生和预约记录 学生：系统的使用者（在后台可以被管理）  2. 功能层次结构第一层：系统管理层处理系统底层配置和权限管理  用户管">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg">
+<meta property="article:published_time" content="2025-04-02T09:49:17.742Z">
+<meta property="article:modified_time" content="2025-04-24T11:07:56.812Z">
+<meta property="article:author" content="屿念">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2025/04/02/gruaduate/%E8%8D%89%E7%A8%BF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Nathen',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-24 19:07:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2362370160966341" crossorigin="anonymous"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/64ef2037661c6c8e54ba8e18.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Nathen"><img class="site-icon" src="/img/logo.png"/><span class="site-name">Nathen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-04-02T09:49:17.742Z" title="Created 2025-04-02 17:49:17">2025-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-04-24T11:07:56.812Z" title="Updated 2025-04-24 19:07:56">2025-04-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="自习室预约系统功能结构与角色分析"><a href="#自习室预约系统功能结构与角色分析" class="headerlink" title="自习室预约系统功能结构与角色分析"></a>自习室预约系统功能结构与角色分析</h1><p>根据代码分析，这是一个自习室预约系统的后台管理界面，功能结构清晰，具有完整的权限管理体系。</p>
+<h2 id="1-系统角色结构"><a href="#1-系统角色结构" class="headerlink" title="1. 系统角色结构"></a>1. 系统角色结构</h2><p>系统采用基于角色的权限管理，主要角色包括：</p>
+<ul>
+<li><strong>系统管理员</strong>：拥有全部权限，管理所有功能模块</li>
+<li><strong>教师&#x2F;管理人员</strong>：管理自习室、学生和预约记录</li>
+<li><strong>学生</strong>：系统的使用者（在后台可以被管理）</li>
+</ul>
+<h2 id="2-功能层次结构"><a href="#2-功能层次结构" class="headerlink" title="2. 功能层次结构"></a>2. 功能层次结构</h2><h3 id="第一层：系统管理层"><a href="#第一层：系统管理层" class="headerlink" title="第一层：系统管理层"></a>第一层：系统管理层</h3><p>处理系统底层配置和权限管理</p>
+<ul>
+<li><strong>用户管理</strong> (UserList.vue)<ul>
+<li>用户增删改查</li>
+<li>重置密码</li>
+<li>分配角色</li>
+</ul>
+</li>
+<li><strong>角色管理</strong> (RoleList.vue)<ul>
+<li>角色增删改查</li>
+<li>分配菜单权限</li>
+</ul>
+</li>
+<li><strong>菜单管理</strong> (MenuList.vue)<ul>
+<li>菜单增删改查</li>
+<li>权限代码管理</li>
+</ul>
+</li>
+</ul>
+<h3 id="第二层：基础数据管理层"><a href="#第二层：基础数据管理层" class="headerlink" title="第二层：基础数据管理层"></a>第二层：基础数据管理层</h3><p>管理系统基础数据</p>
+<ul>
+<li><strong>班级管理</strong> (ClassList.vue)<ul>
+<li>班级增删改查</li>
+</ul>
+</li>
+<li><strong>专业管理</strong> (MajorList.vue)<ul>
+<li>专业增删改查</li>
+</ul>
+</li>
+<li><strong>学生管理</strong> (stuList.vue)<ul>
+<li>学生增删改查</li>
+<li>重置密码</li>
+</ul>
+</li>
+<li><strong>自习室分类管理</strong> (Category.vue)<ul>
+<li>自习室类型增删改查</li>
+</ul>
+</li>
+<li><strong>自习室楼层管理</strong> (floor.vue)<ul>
+<li>楼层增删改查</li>
+</ul>
+</li>
+</ul>
+<h3 id="第三层：业务功能管理层"><a href="#第三层：业务功能管理层" class="headerlink" title="第三层：业务功能管理层"></a>第三层：业务功能管理层</h3><p>系统核心业务功能</p>
+<ul>
+<li><strong>自习室管理</strong> (RoomList.vue)<ul>
+<li>自习室增删改查</li>
+<li>设置开始&#x2F;结束时间</li>
+<li>上传图片</li>
+<li>设置行列数(numX&#x2F;numY)</li>
+</ul>
+</li>
+<li><strong>座位预约管理</strong> (OrderList.vue)<ul>
+<li>预约记录查询</li>
+<li>按状态筛选(已预约&#x2F;已签到&#x2F;已签退&#x2F;已取消)</li>
+<li>按使用状态筛选(未使用&#x2F;使用中)</li>
+</ul>
+</li>
+</ul>
+<h3 id="第四层：辅助功能层"><a href="#第四层：辅助功能层" class="headerlink" title="第四层：辅助功能层"></a>第四层：辅助功能层</h3><p>提供系统辅助服务</p>
+<ul>
+<li><strong>通知公告管理</strong><ul>
+<li>公告类型管理 (category.vue)</li>
+<li>公告内容管理 (NoticeList.vue)</li>
+</ul>
+</li>
+<li><strong>失物招领管理</strong> (Lost.vue)<ul>
+<li>失物信息发布</li>
+<li>认领信息记录</li>
+</ul>
+</li>
+<li><strong>意见反馈管理</strong> (SuggestList.vue)<ul>
+<li>反馈信息查看</li>
+<li>反馈处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="第五层：统计分析层"><a href="#第五层：统计分析层" class="headerlink" title="第五层：统计分析层"></a>第五层：统计分析层</h3><ul>
+<li><strong>首页数据统计</strong> (Index.vue)<ul>
+<li>班级总数统计</li>
+<li>学生总数统计</li>
+<li>阅览室总数统计</li>
+<li>反馈总数统计</li>
+<li>每月预约统计图表</li>
+<li>最受欢迎自习室图表</li>
+<li>公告列表展示</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-主要用例分析"><a href="#3-主要用例分析" class="headerlink" title="3. 主要用例分析"></a>3. 主要用例分析</h2><h3 id="系统管理员用例"><a href="#系统管理员用例" class="headerlink" title="系统管理员用例"></a>系统管理员用例</h3><ul>
+<li>管理用户账号</li>
+<li>分配角色和权限</li>
+<li>管理系统菜单</li>
+<li>查看所有统计数据</li>
+<li>处理全部业务功能</li>
+</ul>
+<h3 id="教师-管理人员用例"><a href="#教师-管理人员用例" class="headerlink" title="教师&#x2F;管理人员用例"></a>教师&#x2F;管理人员用例</h3><ul>
+<li>管理班级和专业信息</li>
+<li>管理学生账号</li>
+<li>管理自习室和座位</li>
+<li>查看预约记录</li>
+<li>发布和管理通知公告</li>
+<li>处理失物招领信息</li>
+<li>处理学生反馈</li>
+</ul>
+<h3 id="学生用例（前台系统）"><a href="#学生用例（前台系统）" class="headerlink" title="学生用例（前台系统）"></a>学生用例（前台系统）</h3><ul>
+<li>浏览自习室信息</li>
+<li>预约座位</li>
+<li>签到&#x2F;签退</li>
+<li>查看自己的预约记录</li>
+<li>发布失物招领信息</li>
+<li>提交反馈意见</li>
+</ul>
+<h2 id="4-关键功能流程"><a href="#4-关键功能流程" class="headerlink" title="4. 关键功能流程"></a>4. 关键功能流程</h2><ol>
+<li><p><strong>座位预约流程</strong>：</p>
+<ul>
+<li>学生选择自习室 → 选择座位 → 提交预约 → 管理员查看预约记录</li>
+</ul>
+</li>
+<li><p><strong>权限管理流程</strong>：</p>
+<ul>
+<li>创建角色 → 为角色分配菜单权限 → 创建用户 → 为用户分配角色</li>
+</ul>
+</li>
+<li><p><strong>通知公告流程</strong>：</p>
+<ul>
+<li>创建公告类型 → 发布公告 → 首页展示公告</li>
+</ul>
+</li>
+</ol>
+<p>这个系统采用了Vue3+TypeScript+Element Plus构建，具有完善的权限管理和功能模块划分，通过角色分配权限实现不同用户的功能限制。</p>
+<h2 id="5-6-移动端接入与扩展"><a href="#5-6-移动端接入与扩展" class="headerlink" title="5.6. 移动端接入与扩展"></a>5.6. 移动端接入与扩展</h2><h3 id="5-6-1-微信小程序接口设计-wxapi"><a href="#5-6-1-微信小程序接口设计-wxapi" class="headerlink" title="5.6.1 微信小程序接口设计 (wxapi)"></a>5.6.1 微信小程序接口设计 (wxapi)</h3><p>微信小程序作为本图书馆座位预约系统的移动端主要入口，提供了完整的用户交互功能。系统采用统一的接口前缀<code>/wxapi/allApi/</code>设计模式，便于后端权限管理与请求处理。如图5.30所示的是API接口定义的核心代码段，系统通过index.js统一管理所有前端接口调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图5.30 API接口定义核心代码段</span></span><br><span class="line"><span class="keyword">import</span> http <span class="keyword">from</span> <span class="string">&#x27;../common/http.js&#x27;</span></span><br><span class="line"><span class="comment">//查询首页分类</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">getIndexCategoryApi</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">	<span class="keyword">return</span> http.<span class="title function_">get</span>(<span class="string">&quot;/wxapi/allApi/getIndexCategory&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//登录</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">loginApi</span> = (<span class="params">parm</span>)=&gt;&#123;</span><br><span class="line">	<span class="keyword">return</span> http.<span class="title function_">post</span>(<span class="string">&quot;/wxapi/allApi/login&quot;</span>,parm)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//座位列表</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">getSeatListApi</span> = (<span class="params">parm</span>)=&gt;&#123;</span><br><span class="line">	<span class="keyword">return</span> http.<span class="title function_">get</span>(<span class="string">&quot;/wxapi/allApi/getSeatList&quot;</span>,parm)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//提交预约</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">selectSeatSaveApi</span> = (<span class="params">parm</span>)=&gt;&#123;</span><br><span class="line">	<span class="keyword">return</span> http.<span class="title function_">post</span>(<span class="string">&quot;/wxapi/allApi/selectSeatSave&quot;</span>,parm)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//提交反馈</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">addSuggestionApi</span> = (<span class="params">parm</span>)=&gt;&#123;</span><br><span class="line">	<span class="keyword">return</span> http.<span class="title function_">post</span>(<span class="string">&quot;/wxapi/allApi/addSuggestion&quot;</span>,parm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口结构清晰，按功能分为用户认证类、座位管理类、预约管理类、失物招领类和公告通知类五大类，确保了系统功能的模块化与可维护性。</p>
+<h3 id="5-6-2-移动端功能与权限控制"><a href="#5-6-2-移动端功能与权限控制" class="headerlink" title="5.6.2 移动端功能与权限控制"></a>5.6.2 移动端功能与权限控制</h3><p>移动端功能设计充分考虑了小程序的使用特点和用户需求，实现了严格的权限控制机制。如图5.31所示的是HTTP请求封装的核心代码段，系统通过http.js统一处理网络请求与响应。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图5.31 HTTP请求封装核心代码段</span></span><br><span class="line"><span class="keyword">const</span> baseUrl = <span class="string">&#x27;http://localhost:8089&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">http</span> = (<span class="params">options = &#123;&#125;</span>) =&gt; &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		uni.<span class="title function_">request</span>(&#123;</span><br><span class="line">			<span class="attr">url</span>: baseUrl + options.<span class="property">url</span> || <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">			<span class="attr">method</span>: options.<span class="property">type</span> || <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">			<span class="attr">data</span>: options.<span class="property">data</span> || &#123;&#125;,</span><br><span class="line">			<span class="attr">header</span>: options.<span class="property">header</span> || &#123;&#125;,</span><br><span class="line">		&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (response.<span class="property">data</span> &amp;&amp; response.<span class="property">data</span>.<span class="property">code</span> == <span class="number">200</span>) &#123;</span><br><span class="line">				<span class="title function_">resolve</span>(response.<span class="property">data</span>);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				uni.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">					<span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">					<span class="attr">title</span>: response.<span class="property">data</span>.<span class="property">msg</span>,</span><br><span class="line">					<span class="attr">duration</span>: <span class="number">2000</span></span><br><span class="line">				&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="title function_">reject</span>(error)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>系统通过会话管理确保用户认证状态的持久性，如图5.32所示的是用户登录实现的核心代码段，登录成功后将用户标识存储在本地。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图5.32 用户登录实现核心代码段</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">login</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">	formRef.<span class="property">value</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="title function_">async</span>(res) =&gt; &#123;</span><br><span class="line">		<span class="keyword">let</span> result = <span class="keyword">await</span> <span class="title function_">loginApi</span>(userInfo)</span><br><span class="line">		<span class="keyword">if</span>(result &amp;&amp; result.<span class="property">code</span> == <span class="number">200</span>)&#123;</span><br><span class="line">			uni.<span class="title function_">setStorageSync</span>(<span class="string">&quot;userId&quot;</span>,result.<span class="property">data</span>)</span><br><span class="line">			uni.<span class="title function_">switchTab</span>(&#123;</span><br><span class="line">				<span class="attr">url</span>:<span class="string">&#x27;../index/index&#x27;</span></span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>移动端功能权限通过用户认证状态进行控制，包括：</p>
+<ol>
+<li><strong>座位预约权限控制</strong>：验证用户登录状态，控制预约时间和次数限制</li>
+<li><strong>个人信息访问控制</strong>：确保用户只能访问和修改自己的信息</li>
+<li><strong>数据隔离机制</strong>：所有请求自动附加用户ID参数，确保数据安全</li>
+</ol>
+<p>座位预约流程实现了完整的用户体验，如图5.33所示的是座位预约确认的核心代码段，系统通过表单验证和状态检查确保预约信息的有效性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图5.33 座位预约确认核心代码段</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">toConfirm</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">	<span class="comment">//判断是否选择座位</span></span><br><span class="line">	<span class="keyword">if</span> (!parms.<span class="property">seatId</span>) &#123;</span><br><span class="line">		toast.<span class="property">value</span>.<span class="title function_">show</span>(&#123;</span><br><span class="line">			<span class="attr">type</span>: <span class="string">&#x27;default&#x27;</span>,</span><br><span class="line">			<span class="attr">message</span>: <span class="string">&quot;请选择座位！&quot;</span></span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//判断是否选择座位</span></span><br><span class="line">	<span class="keyword">if</span> (!parms.<span class="property">times</span>) &#123;</span><br><span class="line">		toast.<span class="property">value</span>.<span class="title function_">show</span>(&#123;</span><br><span class="line">			<span class="attr">type</span>: <span class="string">&#x27;default&#x27;</span>,</span><br><span class="line">			<span class="attr">message</span>: <span class="string">&quot;请选择预约时间！&quot;</span></span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	uni.<span class="title function_">navigateTo</span>(&#123;</span><br><span class="line">		<span class="attr">url</span>: <span class="string">&#x27;../confirm/confirm?item=&#x27;</span> + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(parms)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>移动端UI设计遵循了统一的风格规范，采用uv-ui组件库提供一致的用户体验，主题色统一为#6ECEB0，确保品牌识别的一致性。系统实现了分页加载、表单验证和操作结果提示等交互优化功能，有效提升了用户体验。</p>
+<p>信息通知与互动服务模块通过公告发布、失物招领和意见反馈三个功能组件，形成了系统与用户之间的多维度信息交互渠道。该模块不仅支持管理员向用户推送重要通知，也为用户提供了物品招领与寻找、意见反馈等互动功能，有效提升了图书馆的服务质量和用户满意度。通过标准化的数据结构和统一的界面设计，系统实现了信息发布与互动流程的规范化管理，为用户提供了便捷的信息获取和反馈渠道。</p>
+<h1 id="图书馆座位预约小程序技术详解"><a href="#图书馆座位预约小程序技术详解" class="headerlink" title="图书馆座位预约小程序技术详解"></a>图书馆座位预约小程序技术详解</h1><h2 id="1-项目架构与基础框架"><a href="#1-项目架构与基础框架" class="headerlink" title="1. 项目架构与基础框架"></a>1. 项目架构与基础框架</h2><h3 id="1-1-uni-app框架介绍"><a href="#1-1-uni-app框架介绍" class="headerlink" title="1.1 uni-app框架介绍"></a>1.1 uni-app框架介绍</h3><p>这个项目是基于uni-app框架开发的微信小程序。uni-app是一个跨平台开发框架，允许开发者编写一套代码，可以发布到iOS、Android、Web以及各家小程序等多个平台。</p>
+<p>从<code>main.js</code>和<code>App.vue</code>可以看出，项目使用了Vue 3的Composition API开发方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createSSRApp &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&quot;./App.vue&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createApp</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> app = <span class="title function_">createSSRApp</span>(<span class="title class_">App</span>);</span><br><span class="line">  <span class="keyword">return</span> &#123; app &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-项目配置文件"><a href="#1-2-项目配置文件" class="headerlink" title="1.2 项目配置文件"></a>1.2 项目配置文件</h3><h4 id="manifest-json"><a href="#manifest-json" class="headerlink" title="manifest.json"></a>manifest.json</h4><p>这个文件是应用的配置文件，包含应用的基本信息和平台特定配置：</p>
+<ul>
+<li>版本信息：versionName为1.0.0，versionCode为100</li>
+<li>微信小程序appid：wxed5cd35e00621afe</li>
+<li>跨平台配置：包含mp-weixin(微信小程序)、mp-alipay(支付宝小程序)等配置</li>
+<li>Vue版本：使用Vue 3</li>
+</ul>
+<h4 id="pages-json"><a href="#pages-json" class="headerlink" title="pages.json"></a>pages.json</h4><p>定义了小程序的页面路由和全局样式：</p>
+<ul>
+<li>pages数组：定义了所有页面路径和样式</li>
+<li>globalStyle：全局样式配置，如导航栏颜色(#6ECEB0)</li>
+<li>tabBar：底部导航栏配置，包含5个Tab页(预约、失物、招领、公告、我的)</li>
+</ul>
+<h3 id="1-3-开发环境配置"><a href="#1-3-开发环境配置" class="headerlink" title="1.3 开发环境配置"></a>1.3 开发环境配置</h3><h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>定义了项目依赖和脚本：</p>
+<ul>
+<li>使用Vue 3.2.45</li>
+<li>核心依赖：@dcloudio系列库(uni-app核心库)</li>
+<li>开发工具：Vite 4.1.4、Sass 1.69.3</li>
+</ul>
+<h4 id="vite-config-js"><a href="#vite-config-js" class="headerlink" title="vite.config.js"></a>vite.config.js</h4><p>使用Vite作为构建工具，引入@dcloudio&#x2F;vite-plugin-uni插件支持uni-app开发。</p>
+<h4 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h4><p>定义了Git版本控制忽略的文件和目录。</p>
+<h2 id="2-项目结构与文件分析"><a href="#2-项目结构与文件分析" class="headerlink" title="2. 项目结构与文件分析"></a>2. 项目结构与文件分析</h2><h3 id="2-1-目录结构"><a href="#2-1-目录结构" class="headerlink" title="2.1 目录结构"></a>2.1 目录结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/src</span><br><span class="line">  /api - API接口定义</span><br><span class="line">  /common - 公共方法(如HTTP请求封装)</span><br><span class="line">  /pages - 页面组件</span><br><span class="line">  /static - 静态资源(图标等)</span><br><span class="line">  /uni_modules - uni-app组件库(uv-ui)</span><br><span class="line">  App.vue - 应用入口组件</span><br><span class="line">  main.js - 应用入口JS</span><br><span class="line">  manifest.json - 应用配置</span><br><span class="line">  pages.json - 页面路由配置</span><br><span class="line">  uni.scss - 全局样式变量</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-核心模块解析"><a href="#2-2-核心模块解析" class="headerlink" title="2.2 核心模块解析"></a>2.2 核心模块解析</h3><h4 id="API模块-src-api-index-js"><a href="#API模块-src-api-index-js" class="headerlink" title="API模块 (src&#x2F;api&#x2F;index.js)"></a>API模块 (src&#x2F;api&#x2F;index.js)</h4><p>封装了与后端交互的API调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> http <span class="keyword">from</span> <span class="string">&#x27;../common/http.js&#x27;</span></span><br><span class="line"><span class="comment">//查询首页分类</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">getIndexCategoryApi</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">  <span class="keyword">return</span> http.<span class="title function_">get</span>(<span class="string">&quot;/wxapi/allApi/getIndexCategory&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//登录</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">loginApi</span> = (<span class="params">parm</span>)=&gt;&#123;</span><br><span class="line">  <span class="keyword">return</span> http.<span class="title function_">post</span>(<span class="string">&quot;/wxapi/allApi/login&quot;</span>,parm)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...更多API</span></span><br></pre></td></tr></table></figure>
+
+<p>这里使用了模块化设计，每个API函数负责一个特定功能：</p>
+<ul>
+<li>登录注册相关API</li>
+<li>座位查询与预约API</li>
+<li>失物招领相关API</li>
+<li>用户信息管理API</li>
+</ul>
+<h4 id="HTTP模块-src-common-http-js"><a href="#HTTP模块-src-common-http-js" class="headerlink" title="HTTP模块 (src&#x2F;common&#x2F;http.js)"></a>HTTP模块 (src&#x2F;common&#x2F;http.js)</h4><p>封装了HTTP请求方法，处理请求响应和错误：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> baseUrl = <span class="string">&#x27;http://localhost:8089&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">http</span> = (<span class="params">options = &#123;&#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    uni.<span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: baseUrl + options.<span class="property">url</span> || <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: options.<span class="property">type</span> || <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: options.<span class="property">data</span> || &#123;&#125;,</span><br><span class="line">      <span class="attr">header</span>: options.<span class="property">header</span> || &#123;&#125;,</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (response.<span class="property">data</span> &amp;&amp; response.<span class="property">data</span>.<span class="property">code</span> == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(response.<span class="property">data</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        uni.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">          <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span>,</span><br><span class="line">          <span class="attr">title</span>: response.<span class="property">data</span>.<span class="property">msg</span>,</span><br><span class="line">          <span class="attr">duration</span>: <span class="number">2000</span></span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">reject</span>(error)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个模块实现了：</p>
+<ul>
+<li>Promise封装uni.request请求</li>
+<li>统一的错误处理</li>
+<li>GET&#x2F;POST&#x2F;PUT等请求方法封装</li>
+<li>文件上传功能</li>
+</ul>
+<h2 id="3-页面功能与实现"><a href="#3-页面功能与实现" class="headerlink" title="3. 页面功能与实现"></a>3. 页面功能与实现</h2><h3 id="3-1-登录与注册-login-vue-register-vue"><a href="#3-1-登录与注册-login-vue-register-vue" class="headerlink" title="3.1 登录与注册 (login.vue, register.vue)"></a>3.1 登录与注册 (login.vue, register.vue)</h3><p>login.vue实现了用户登录功能：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;logincontainner&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;userImg&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">uv-image</span> <span class="attr">src</span>=<span class="string">&quot;/static/user.jpg&quot;</span> <span class="attr">shape</span>=<span class="string">&quot;circle&quot;</span> <span class="attr">width</span>=<span class="string">&quot;80px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;80px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">uv-image</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uv-form</span> <span class="attr">labelPosition</span>=<span class="string">&quot;left&quot;</span> <span class="attr">:model</span>=<span class="string">&quot;userInfo&quot;</span> <span class="attr">:rules</span>=<span class="string">&quot;rules&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;formRef&quot;</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 表单项 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">uv-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;loginBtn&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">uv-button</span> @<span class="attr">click</span>=<span class="string">&quot;login&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">uv-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">uv-button</span> @<span class="attr">click</span>=<span class="string">&quot;toRegister&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">uv-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>登录功能实现：</p>
+<ol>
+<li>使用reactive创建响应式的userInfo对象存储用户输入</li>
+<li>使用表单验证确保输入有效性</li>
+<li>调用loginApi向后端发送请求</li>
+<li>成功登录后保存用户ID并跳转到首页</li>
+</ol>
+<h3 id="3-2-首页与座位预约-index-vue-index-detail-vue-confirm-vue"><a href="#3-2-首页与座位预约-index-vue-index-detail-vue-confirm-vue" class="headerlink" title="3.2 首页与座位预约 (index.vue, index_detail.vue, confirm.vue)"></a>3.2 首页与座位预约 (index.vue, index_detail.vue, confirm.vue)</h3><p>index.vue显示可预约的座位列表：</p>
+<ul>
+<li>使用uv-tabs组件显示分类选项</li>
+<li>使用uv-list组件显示座位列表</li>
+<li>实现下拉刷新和上拉加载更多</li>
+<li>点击座位项跳转到详情页</li>
+</ul>
+<p>index_detail.vue显示座位详情和选择具体座位：</p>
+<ul>
+<li>使用九宫格布局展示座位状态</li>
+<li>用不同颜色标识座位状态(可预约、已预约)</li>
+<li>选择座位后跳转到确认页</li>
+</ul>
+<p>confirm.vue确认预约信息：</p>
+<ul>
+<li>显示预约座位信息(名称、楼层、座位号、时间)</li>
+<li>显示预约规则提示</li>
+<li>确认按钮提交预约</li>
+</ul>
+<h3 id="3-3-失物招领功能-lost-vue-find-vue-lost-detail-vue-find-detail-vue"><a href="#3-3-失物招领功能-lost-vue-find-vue-lost-detail-vue-find-detail-vue" class="headerlink" title="3.3 失物招领功能 (lost.vue, find.vue, lost_detail.vue, find_detail.vue)"></a>3.3 失物招领功能 (lost.vue, find.vue, lost_detail.vue, find_detail.vue)</h3><p>lost.vue和find.vue分别实现失物和招领信息列表：</p>
+<ul>
+<li>使用uv-waterfall组件实现瀑布流布局</li>
+<li>实现下拉刷新和上拉加载更多</li>
+<li>点击项目跳转到详情页</li>
+</ul>
+<p>lost_detail.vue和find_detail.vue显示详情：</p>
+<ul>
+<li>使用uv-swiper组件展示图片轮播</li>
+<li>显示标题、描述和详细内容</li>
+<li>使用uv-parse组件解析富文本内容</li>
+</ul>
+<h3 id="3-4-个人中心功能-mine-vue-my-info-vue-order-vue"><a href="#3-4-个人中心功能-mine-vue-my-info-vue-order-vue" class="headerlink" title="3.4 个人中心功能 (mine.vue, my_info.vue, order.vue)"></a>3.4 个人中心功能 (mine.vue, my_info.vue, order.vue)</h3><p>mine.vue实现个人中心页面：</p>
+<ul>
+<li>显示用户头像和昵称</li>
+<li>使用uv-list-item组件列出功能菜单</li>
+<li>实现退出登录功能</li>
+</ul>
+<p>my_info.vue显示和编辑个人信息：</p>
+<ul>
+<li>使用uv-form组件实现表单</li>
+<li>实现头像上传功能</li>
+<li>提交修改个人信息</li>
+</ul>
+<p>order.vue显示用户的预约记录：</p>
+<ul>
+<li>列出用户的所有预约</li>
+<li>显示预约状态(待签到、已签到等)</li>
+<li>提供取消预约、签到、签退等操作</li>
+</ul>
+<h3 id="3-5-公告页面-notice-vue"><a href="#3-5-公告页面-notice-vue" class="headerlink" title="3.5 公告页面 (notice.vue)"></a>3.5 公告页面 (notice.vue)</h3><p>notice.vue显示系统公告：</p>
+<ul>
+<li>使用uv-list组件显示公告列表</li>
+<li>实现下拉刷新和上拉加载更多</li>
+<li>显示公告标题、内容和日期</li>
+</ul>
+<h3 id="3-6-其他功能页面"><a href="#3-6-其他功能页面" class="headerlink" title="3.6 其他功能页面"></a>3.6 其他功能页面</h3><ul>
+<li>suggestion.vue：意见反馈功能</li>
+<li>update_password.vue：修改密码功能</li>
+<li>back_out.vue：签到记录查询</li>
+</ul>
+<h2 id="4-UI组件库-uv-ui"><a href="#4-UI组件库-uv-ui" class="headerlink" title="4. UI组件库 - uv-ui"></a>4. UI组件库 - uv-ui</h2><p>项目使用了uv-ui组件库，提供了丰富的UI组件：</p>
+<h3 id="4-1-基础组件"><a href="#4-1-基础组件" class="headerlink" title="4.1 基础组件"></a>4.1 基础组件</h3><ul>
+<li>uv-button：按钮组件</li>
+<li>uv-icon：图标组件</li>
+<li>uv-image：图片组件</li>
+<li>uv-text：文本组件</li>
+</ul>
+<h3 id="4-2-表单组件"><a href="#4-2-表单组件" class="headerlink" title="4.2 表单组件"></a>4.2 表单组件</h3><ul>
+<li>uv-form：表单组件，支持验证</li>
+<li>uv-input：输入框组件</li>
+<li>uv-radio：单选按钮组件</li>
+<li>uv-checkbox：复选框组件</li>
+<li>uv-textarea：多行文本输入组件</li>
+<li>uv-upload：文件上传组件</li>
+</ul>
+<h3 id="4-3-布局组件"><a href="#4-3-布局组件" class="headerlink" title="4.3 布局组件"></a>4.3 布局组件</h3><ul>
+<li>uv-row：栅格布局行组件</li>
+<li>uv-list：列表组件</li>
+<li>uv-grid：网格组件</li>
+<li>uv-waterfall：瀑布流组件</li>
+<li>uv-sticky：吸顶组件</li>
+</ul>
+<h3 id="4-4-导航组件"><a href="#4-4-导航组件" class="headerlink" title="4.4 导航组件"></a>4.4 导航组件</h3><ul>
+<li>uv-tabs：标签页组件</li>
+<li>uv-navbar：导航栏组件</li>
+<li>uv-tabbar：底部导航栏组件</li>
+</ul>
+<h3 id="4-5-反馈组件"><a href="#4-5-反馈组件" class="headerlink" title="4.5 反馈组件"></a>4.5 反馈组件</h3><ul>
+<li>uv-toast：轻提示组件</li>
+<li>uv-modal：模态框组件</li>
+<li>uv-popup：弹出层组件</li>
+<li>uv-action-sheet：底部操作菜单组件</li>
+<li>uv-alert：警告提示组件</li>
+</ul>
+<h3 id="4-6-其他功能组件"><a href="#4-6-其他功能组件" class="headerlink" title="4.6 其他功能组件"></a>4.6 其他功能组件</h3><ul>
+<li>uv-swiper：轮播图组件</li>
+<li>uv-load-more：加载更多组件</li>
+<li>uv-calendar：日历组件</li>
+<li>uv-parse：富文本解析组件</li>
+</ul>
+<h2 id="5-Vue-3-Composition-API使用"><a href="#5-Vue-3-Composition-API使用" class="headerlink" title="5. Vue 3 Composition API使用"></a>5. Vue 3 Composition API使用</h2><p>项目使用了Vue 3的Composition API进行开发：</p>
+<h3 id="5-1-响应式状态管理"><a href="#5-1-响应式状态管理" class="headerlink" title="5.1 响应式状态管理"></a>5.1 响应式状态管理</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref, reactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用ref定义简单响应式状态</span></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用reactive定义复杂响应式对象</span></span><br><span class="line"><span class="keyword">const</span> userInfo = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">stuNum</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">password</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-生命周期钩子"><a href="#5-2-生命周期钩子" class="headerlink" title="5.2 生命周期钩子"></a>5.2 生命周期钩子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; onLoad, onShow, onReachBottom &#125; <span class="keyword">from</span> <span class="string">&#x27;@dcloudio/uni-app&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面加载时</span></span><br><span class="line"><span class="title function_">onLoad</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">getList</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面显示时</span></span><br><span class="line"><span class="title function_">onShow</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">getStuById</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触底加载更多</span></span><br><span class="line"><span class="title function_">onReachBottom</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">loadmore</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-计算属性"><a href="#5-3-计算属性" class="headerlink" title="5.3 计算属性"></a>5.3 计算属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; computed &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算属性</span></span><br><span class="line"><span class="keyword">const</span> imageStyle = <span class="title function_">computed</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> w = uni.<span class="title function_">upx2px</span>(<span class="number">750</span>) / <span class="number">2</span> - <span class="number">15</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">width</span>: w + <span class="string">&#x27;px&#x27;</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-小程序开发技巧与注意事项"><a href="#6-小程序开发技巧与注意事项" class="headerlink" title="6. 小程序开发技巧与注意事项"></a>6. 小程序开发技巧与注意事项</h2><h3 id="6-1-页面路由与导航"><a href="#6-1-页面路由与导航" class="headerlink" title="6.1 页面路由与导航"></a>6.1 页面路由与导航</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通页面跳转</span></span><br><span class="line">uni.<span class="title function_">navigateTo</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;../index_detail/index_detail?item=&#x27;</span> + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(item)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tabBar页面跳转</span></span><br><span class="line">uni.<span class="title function_">switchTab</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;../index/index&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回上一页</span></span><br><span class="line">uni.<span class="title function_">navigateBack</span>(&#123;</span><br><span class="line">  <span class="attr">delta</span>: <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重启到登录页</span></span><br><span class="line">uni.<span class="title function_">reLaunch</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&quot;../login/login&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-数据缓存使用"><a href="#6-2-数据缓存使用" class="headerlink" title="6.2 数据缓存使用"></a>6.2 数据缓存使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存储用户ID</span></span><br><span class="line">uni.<span class="title function_">setStorageSync</span>(<span class="string">&quot;userId&quot;</span>, result.<span class="property">data</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取用户ID</span></span><br><span class="line"><span class="keyword">const</span> userId = uni.<span class="title function_">getStorageSync</span>(<span class="string">&quot;userId&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 清空所有缓存</span></span><br><span class="line">uni.<span class="title function_">clearStorage</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-表单验证"><a href="#6-3-表单验证" class="headerlink" title="6.3 表单验证"></a>6.3 表单验证</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义验证规则</span></span><br><span class="line"><span class="keyword">const</span> rules = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="string">&#x27;stuName&#x27;</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;string&#x27;</span>,</span><br><span class="line">    <span class="attr">required</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&#x27;请填写姓名&#x27;</span>,</span><br><span class="line">    <span class="attr">trigger</span>: [<span class="string">&#x27;blur&#x27;</span>, <span class="string">&#x27;change&#x27;</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进行验证</span></span><br><span class="line">formRef.<span class="property">value</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="title function_">async</span>(res) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 验证通过</span></span><br><span class="line">  <span class="keyword">let</span> result = <span class="keyword">await</span> <span class="title function_">loginApi</span>(userInfo)</span><br><span class="line">  <span class="comment">// 处理结果</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4-列表分页加载"><a href="#6-4-列表分页加载" class="headerlink" title="6.4 列表分页加载"></a>6.4 列表分页加载</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加载更多</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">loadmore</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span>(currentPage.<span class="property">value</span> &gt;= pages.<span class="property">value</span>)&#123;</span><br><span class="line">    loadStatus.<span class="property">value</span> = <span class="string">&#x27;nomore&#x27;</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  loadStatus.<span class="property">value</span> = <span class="string">&#x27;loading&#x27;</span></span><br><span class="line">  <span class="comment">// 页数加1</span></span><br><span class="line">  currentPage.<span class="property">value</span> = ++currentPage.<span class="property">value</span>;</span><br><span class="line">  <span class="title function_">getList</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-5-微信小程序特有功能"><a href="#6-5-微信小程序特有功能" class="headerlink" title="6.5 微信小程序特有功能"></a>6.5 微信小程序特有功能</h3><ul>
+<li>通过manifest.json中的appid配置小程序ID</li>
+<li>通过pages.json配置tabBar和页面路由</li>
+<li>通过条件编译处理不同平台差异</li>
+</ul>
+<h2 id="7-开发中存在的问题与解决方案"><a href="#7-开发中存在的问题与解决方案" class="headerlink" title="7. 开发中存在的问题与解决方案"></a>7. 开发中存在的问题与解决方案</h2><h3 id="7-1-CSS选择器限制"><a href="#7-1-CSS选择器限制" class="headerlink" title="7.1 CSS选择器限制"></a>7.1 CSS选择器限制</h3><p>微信小程序中不允许使用某些CSS选择器，需要修改为类选择器：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 错误 */</span></span><br><span class="line">page &#123; <span class="attribute">background-color</span>: <span class="number">#FFF</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 正确 */</span></span><br><span class="line"><span class="selector-class">.page-container</span> &#123; <span class="attribute">background-color</span>: <span class="number">#FFF</span>; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-表单引用问题"><a href="#7-2-表单引用问题" class="headerlink" title="7.2 表单引用问题"></a>7.2 表单引用问题</h3><p>可能存在表单引用为null的问题，需要加入验证：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">login</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (formRef.<span class="property">value</span>) &#123;</span><br><span class="line">    formRef.<span class="property">value</span>.<span class="title function_">validate</span>().<span class="title function_">then</span>(<span class="title function_">async</span>(res) =&gt; &#123;</span><br><span class="line">      <span class="comment">// 验证成功处理</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    uni.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;系统错误，请重试&#x27;</span>,</span><br><span class="line">      <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-v-for绑定key"><a href="#7-3-v-for绑定key" class="headerlink" title="7.3 v-for绑定key"></a>7.3 v-for绑定key</h3><p>在使用v-for时需要绑定唯一key，并在v-for与v-key同时使用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in list&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.id&quot;</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-项目实现的业务功能总结"><a href="#8-项目实现的业务功能总结" class="headerlink" title="8. 项目实现的业务功能总结"></a>8. 项目实现的业务功能总结</h2><h3 id="8-1-座位预约系统"><a href="#8-1-座位预约系统" class="headerlink" title="8.1 座位预约系统"></a>8.1 座位预约系统</h3><ul>
+<li>分类查询座位区域</li>
+<li>选择具体座位</li>
+<li>提交预约信息</li>
+<li>预约记录管理</li>
+<li>签到&#x2F;签退功能</li>
+</ul>
+<h3 id="8-2-失物招领平台"><a href="#8-2-失物招领平台" class="headerlink" title="8.2 失物招领平台"></a>8.2 失物招领平台</h3><ul>
+<li>失物信息发布与查询</li>
+<li>招领信息发布与查询</li>
+<li>详情查看</li>
+</ul>
+<h3 id="8-3-用户管理系统"><a href="#8-3-用户管理系统" class="headerlink" title="8.3 用户管理系统"></a>8.3 用户管理系统</h3><ul>
+<li>用户注册与登录</li>
+<li>个人信息管理</li>
+<li>密码修改</li>
+</ul>
+<h3 id="8-4-其他功能"><a href="#8-4-其他功能" class="headerlink" title="8.4 其他功能"></a>8.4 其他功能</h3><ul>
+<li>公告发布与查看</li>
+<li>意见反馈</li>
+<li>签到记录查询</li>
+</ul>
+<h2 id="9-学习建议与进阶路径"><a href="#9-学习建议与进阶路径" class="headerlink" title="9. 学习建议与进阶路径"></a>9. 学习建议与进阶路径</h2><ol>
+<li>先熟悉Vue 3基础语法和Composition API</li>
+<li>学习uni-app开发文档和生命周期</li>
+<li>研究uv-ui组件库的使用方法</li>
+<li>了解微信小程序特有功能和限制</li>
+<li>尝试修改已有功能，理解代码逻辑</li>
+<li>添加新功能，如社交分享、主题切换等</li>
+<li>优化现有代码，如状态管理、组件复用等</li>
+</ol>
+<p>以上是对您图书馆座位预约小程序的全面分析，涵盖了技术架构、页面功能、组件使用、开发技巧等各方面内容。通过学习这个项目，您可以全面掌握微信小程序开发的知识和技能。</p>
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>是否主键</th>
+<th>是否为空</th>
+<th>字段描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>role_menu_id</td>
+<td>int(11)</td>
+<td>是</td>
+<td>否</td>
+<td>关联ID</td>
+</tr>
+<tr>
+<td>role_id</td>
+<td>int(11)</td>
+<td>否</td>
+<td>否</td>
+<td>角色ID</td>
+</tr>
+<tr>
+<td>menu_id</td>
+<td>int(11)</td>
+<td>否</td>
+<td>否</td>
+<td>菜单ID</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">屿念</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/02/gruaduate/%E8%8D%89%E7%A8%BF/">http://example.com/2025/04/02/gruaduate/%E8%8D%89%E7%A8%BF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/18/gruaduate/418%E7%AC%94%E8%AE%B0/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2025/03/22/gruaduate/Day6(%E6%95%B4%E7%90%86word)/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">屿念</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2776484697@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">一只蝴蝶有多鲜艳 能不能飞跃过猜忌和冷漠世界</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E4%B9%A0%E5%AE%A4%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E7%BB%93%E6%9E%84%E4%B8%8E%E8%A7%92%E8%89%B2%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">自习室预约系统功能结构与角色分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E8%A7%92%E8%89%B2%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">1. 系统角色结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%9F%E8%83%BD%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">2. 功能层次结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%B1%82"><span class="toc-number">1.2.1.</span> <span class="toc-text">第一层：系统管理层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86%E5%B1%82"><span class="toc-number">1.2.2.</span> <span class="toc-text">第二层：基础数据管理层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9A%E4%B8%9A%E5%8A%A1%E5%8A%9F%E8%83%BD%E7%AE%A1%E7%90%86%E5%B1%82"><span class="toc-number">1.2.3.</span> <span class="toc-text">第三层：业务功能管理层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%B1%82%EF%BC%9A%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD%E5%B1%82"><span class="toc-number">1.2.4.</span> <span class="toc-text">第四层：辅助功能层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%B1%82%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E5%B1%82"><span class="toc-number">1.2.5.</span> <span class="toc-text">第五层：统计分析层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%BB%E8%A6%81%E7%94%A8%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.3.</span> <span class="toc-text">3. 主要用例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E4%BE%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">系统管理员用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%99%E5%B8%88-%E7%AE%A1%E7%90%86%E4%BA%BA%E5%91%98%E7%94%A8%E4%BE%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">教师&#x2F;管理人员用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E7%94%9F%E7%94%A8%E4%BE%8B%EF%BC%88%E5%89%8D%E5%8F%B0%E7%B3%BB%E7%BB%9F%EF%BC%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">学生用例（前台系统）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%85%B3%E9%94%AE%E5%8A%9F%E8%83%BD%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">4. 关键功能流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8E%A5%E5%85%A5%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="toc-number">1.5.</span> <span class="toc-text">5.6. 移动端接入与扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-1-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1-wxapi"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.6.1 微信小程序接口设计 (wxapi)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-2-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%8A%9F%E8%83%BD%E4%B8%8E%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.6.2 移动端功能与权限控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E9%A6%86%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">图书馆座位预约小程序技术详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6"><span class="toc-number">2.1.</span> <span class="toc-text">1. 项目架构与基础框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-uni-app%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 uni-app框架介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 项目配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#manifest-json"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">manifest.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pages-json"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">pages.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 开发环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#package-json"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vite-config-js"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">vite.config.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gitignore"><span class="toc-number">2.1.3.3.</span> <span class="toc-text">.gitignore</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">2. 项目结构与文件分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 核心模块解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#API%E6%A8%A1%E5%9D%97-src-api-index-js"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">API模块 (src&#x2F;api&#x2F;index.js)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E6%A8%A1%E5%9D%97-src-common-http-js"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">HTTP模块 (src&#x2F;common&#x2F;http.js)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%A1%B5%E9%9D%A2%E5%8A%9F%E8%83%BD%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.</span> <span class="toc-text">3. 页面功能与实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C-login-vue-register-vue"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 登录与注册 (login.vue, register.vue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%A6%96%E9%A1%B5%E4%B8%8E%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6-index-vue-index-detail-vue-confirm-vue"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 首页与座位预约 (index.vue, index_detail.vue, confirm.vue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E5%8A%9F%E8%83%BD-lost-vue-find-vue-lost-detail-vue-find-detail-vue"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3 失物招领功能 (lost.vue, find.vue, lost_detail.vue, find_detail.vue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E5%8A%9F%E8%83%BD-mine-vue-my-info-vue-order-vue"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4 个人中心功能 (mine.vue, my_info.vue, order.vue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E5%85%AC%E5%91%8A%E9%A1%B5%E9%9D%A2-notice-vue"><span class="toc-number">2.3.5.</span> <span class="toc-text">3.5 公告页面 (notice.vue)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD%E9%A1%B5%E9%9D%A2"><span class="toc-number">2.3.6.</span> <span class="toc-text">3.6 其他功能页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-UI%E7%BB%84%E4%BB%B6%E5%BA%93-uv-ui"><span class="toc-number">2.4.</span> <span class="toc-text">4. UI组件库 - uv-ui</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1 基础组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%A1%A8%E5%8D%95%E7%BB%84%E4%BB%B6"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2 表单组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B8%83%E5%B1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">2.4.3.</span> <span class="toc-text">4.3 布局组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%AF%BC%E8%88%AA%E7%BB%84%E4%BB%B6"><span class="toc-number">2.4.4.</span> <span class="toc-text">4.4 导航组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E5%8F%8D%E9%A6%88%E7%BB%84%E4%BB%B6"><span class="toc-number">2.4.5.</span> <span class="toc-text">4.5 反馈组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD%E7%BB%84%E4%BB%B6"><span class="toc-number">2.4.6.</span> <span class="toc-text">4.6 其他功能组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Vue-3-Composition-API%E4%BD%BF%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">5. Vue 3 Composition API使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">2.5.1.</span> <span class="toc-text">5.1 响应式状态管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90"><span class="toc-number">2.5.2.</span> <span class="toc-text">5.2 生命周期钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="toc-number">2.5.3.</span> <span class="toc-text">5.3 计算属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.6.</span> <span class="toc-text">6. 小程序开发技巧与注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E9%A1%B5%E9%9D%A2%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%AF%BC%E8%88%AA"><span class="toc-number">2.6.1.</span> <span class="toc-text">6.1 页面路由与导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%95%B0%E6%8D%AE%E7%BC%93%E5%AD%98%E4%BD%BF%E7%94%A8"><span class="toc-number">2.6.2.</span> <span class="toc-text">6.2 数据缓存使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81"><span class="toc-number">2.6.3.</span> <span class="toc-text">6.3 表单验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-%E5%88%97%E8%A1%A8%E5%88%86%E9%A1%B5%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.6.4.</span> <span class="toc-text">6.4 列表分页加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%89%B9%E6%9C%89%E5%8A%9F%E8%83%BD"><span class="toc-number">2.6.5.</span> <span class="toc-text">6.5 微信小程序特有功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.7.</span> <span class="toc-text">7. 开发中存在的问题与解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-CSS%E9%80%89%E6%8B%A9%E5%99%A8%E9%99%90%E5%88%B6"><span class="toc-number">2.7.1.</span> <span class="toc-text">7.1 CSS选择器限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E8%A1%A8%E5%8D%95%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98"><span class="toc-number">2.7.2.</span> <span class="toc-text">7.2 表单引用问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-v-for%E7%BB%91%E5%AE%9Akey"><span class="toc-number">2.7.3.</span> <span class="toc-text">7.3 v-for绑定key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%9A%E5%8A%A1%E5%8A%9F%E8%83%BD%E6%80%BB%E7%BB%93"><span class="toc-number">2.8.</span> <span class="toc-text">8. 项目实现的业务功能总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.8.1.</span> <span class="toc-text">8.1 座位预约系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E5%A4%B1%E7%89%A9%E6%8B%9B%E9%A2%86%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.8.2.</span> <span class="toc-text">8.2 失物招领平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.8.3.</span> <span class="toc-text">8.3 用户管理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD"><span class="toc-number">2.8.4.</span> <span class="toc-text">8.4 其他功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">2.9.</span> <span class="toc-text">9. 学习建议与进阶路径</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%89%8D%E7%AB%AF/" title="No title">No title</a><time datetime="2025-04-27T14:19:48.382Z" title="Created 2025-04-27 22:19:48">2025-04-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%90%8E%E7%AB%AF/" title="No title">No title</a><time datetime="2025-04-27T14:09:07.534Z" title="Created 2025-04-27 22:09:07">2025-04-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/26/gruaduate/%E8%BD%AC%E6%8D%A22/" title="No title">No title</a><time datetime="2025-04-26T07:37:05.384Z" title="Created 2025-04-26 15:37:05">2025-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/24/gruaduate/%E8%BD%AC%E6%8D%A2/" title="No title">No title</a><time datetime="2025-04-24T12:20:44.720Z" title="Created 2025-04-24 20:20:44">2025-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/18/gruaduate/418%E7%AC%94%E8%AE%B0/" title="No title">No title</a><time datetime="2025-04-18T08:12:44.181Z" title="Created 2025-04-18 16:12:44">2025-04-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.imgtg.com/2023/07/30/OisM0L.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 屿念</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

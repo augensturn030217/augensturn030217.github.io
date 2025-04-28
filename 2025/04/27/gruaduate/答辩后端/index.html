@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Nathen | Nathen</title><meta name="author" content="屿念"><meta name="copyright" content="屿念"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="自习室座位预约系统后端技术详解系统架构 架构模式：采用经典三层架构（控制器-服务-数据访问） 项目结构：基于Maven多模块构建，包含父模块(itmk-base-parent)和子模块(itmk-base-common, itmk-base-web) 核心框架：Spring Boot 2.4.4作为基础框架，简化配置和部署  核心技术栈 Spring Boot：提供自动配置、内嵌服务器等特性 My">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nathen">
+<meta property="og:url" content="http://example.com/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%90%8E%E7%AB%AF/index.html">
+<meta property="og:site_name" content="Nathen">
+<meta property="og:description" content="自习室座位预约系统后端技术详解系统架构 架构模式：采用经典三层架构（控制器-服务-数据访问） 项目结构：基于Maven多模块构建，包含父模块(itmk-base-parent)和子模块(itmk-base-common, itmk-base-web) 核心框架：Spring Boot 2.4.4作为基础框架，简化配置和部署  核心技术栈 Spring Boot：提供自动配置、内嵌服务器等特性 My">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg">
+<meta property="article:published_time" content="2025-04-27T14:09:07.534Z">
+<meta property="article:modified_time" content="2025-04-27T15:46:45.996Z">
+<meta property="article:author" content="屿念">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%90%8E%E7%AB%AF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Nathen',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-27 23:46:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2362370160966341" crossorigin="anonymous"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://pic.imgdb.cn/item/64ef2037661c6c8e54ba8e18.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Nathen"><img class="site-icon" src="/img/logo.png"/><span class="site-name">Nathen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-04-27T14:09:07.534Z" title="Created 2025-04-27 22:09:07">2025-04-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-04-27T15:46:45.996Z" title="Updated 2025-04-27 23:46:45">2025-04-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="自习室座位预约系统后端技术详解"><a href="#自习室座位预约系统后端技术详解" class="headerlink" title="自习室座位预约系统后端技术详解"></a>自习室座位预约系统后端技术详解</h1><h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><ul>
+<li><strong>架构模式</strong>：采用经典三层架构（控制器-服务-数据访问）</li>
+<li><strong>项目结构</strong>：基于Maven多模块构建，包含父模块(itmk-base-parent)和子模块(itmk-base-common, itmk-base-web)</li>
+<li><strong>核心框架</strong>：Spring Boot 2.4.4作为基础框架，简化配置和部署</li>
+</ul>
+<h2 id="核心技术栈"><a href="#核心技术栈" class="headerlink" title="核心技术栈"></a>核心技术栈</h2><ul>
+<li><strong>Spring Boot</strong>：提供自动配置、内嵌服务器等特性</li>
+<li><strong>MyBatis-Plus</strong>：增强版MyBatis，提供CRUD操作、分页查询等便捷功能</li>
+<li><strong>Spring Security</strong>：实现RBAC权限模型，保障系统安全</li>
+<li><strong>JWT</strong>：基于Token的认证机制，支持无状态会话管理</li>
+<li><strong>MySQL</strong>：关系型数据库存储</li>
+<li><strong>Druid</strong>：阿里开源数据库连接池，提供监控功能</li>
+<li><strong>Lombok</strong>：简化实体类开发，减少样板代码</li>
+<li><strong>Swagger</strong>：API文档自动生成工具</li>
+</ul>
+<h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><h3 id="通用模块-itmk-base-common"><a href="#通用模块-itmk-base-common" class="headerlink" title="通用模块(itmk-base-common)"></a>通用模块(itmk-base-common)</h3><ul>
+<li>封装统一响应格式(ResultVo, ResultUtils)</li>
+<li>定义全局状态码(StatusCode)</li>
+<li>工具类集合</li>
+</ul>
+<h3 id="Web应用模块-itmk-base-web"><a href="#Web应用模块-itmk-base-web" class="headerlink" title="Web应用模块(itmk-base-web)"></a>Web应用模块(itmk-base-web)</h3><ul>
+<li>系统配置：跨域、MVC、MyBatis-Plus、安全等配置</li>
+<li>用户认证：JWT令牌生成与验证、验证码生成</li>
+<li>业务逻辑实现：<ul>
+<li>自习室及座位管理</li>
+<li>预约管理</li>
+<li>用户角色权限管理</li>
+<li>学生信息管理</li>
+<li>公告管理</li>
+<li>失物招领</li>
+<li>意见反馈</li>
+</ul>
+</li>
+</ul>
+<h2 id="功能亮点"><a href="#功能亮点" class="headerlink" title="功能亮点"></a>功能亮点</h2><h3 id="安全认证机制"><a href="#安全认证机制" class="headerlink" title="安全认证机制"></a>安全认证机制</h3><ul>
+<li>结合Spring Security和JWT实现认证授权</li>
+<li>验证码防护登录接口</li>
+<li>基于RBAC的细粒度权限控制</li>
+</ul>
+<h3 id="数据访问层设计"><a href="#数据访问层设计" class="headerlink" title="数据访问层设计"></a>数据访问层设计</h3><ul>
+<li>采用MyBatis-Plus提高开发效率</li>
+<li>自定义分页查询，支持多条件筛选</li>
+<li>统一的数据访问接口</li>
+</ul>
+<h3 id="异常处理与日志"><a href="#异常处理与日志" class="headerlink" title="异常处理与日志"></a>异常处理与日志</h3><ul>
+<li>全局异常处理机制</li>
+<li>规范的日志记录</li>
+</ul>
+<h3 id="RESTful-API设计"><a href="#RESTful-API设计" class="headerlink" title="RESTful API设计"></a>RESTful API设计</h3><ul>
+<li>标准HTTP方法语义(GET&#x2F;POST&#x2F;PUT&#x2F;DELETE)</li>
+<li>统一响应格式，便于前端处理</li>
+</ul>
+<h3 id="预约核心功能"><a href="#预约核心功能" class="headerlink" title="预约核心功能"></a>预约核心功能</h3><ul>
+<li>座位状态管理</li>
+<li>预约冲突检测</li>
+<li>签到签退机制(BackOut模块)</li>
+</ul>
+<h3 id="系统扩展性"><a href="#系统扩展性" class="headerlink" title="系统扩展性"></a>系统扩展性</h3><ul>
+<li>模块化设计，便于功能扩展</li>
+<li>代码生成器支持，加速开发</li>
+</ul>
+<h2 id="技术整合亮点"><a href="#技术整合亮点" class="headerlink" title="技术整合亮点"></a>技术整合亮点</h2><ol>
+<li><strong>前后端分离架构</strong>：后端专注提供RESTful API，与前端Vue3应用完美对接</li>
+<li><strong>全面的权限控制</strong>：菜单权限、按钮权限精细管理</li>
+<li><strong>数据安全保障</strong>：JWT令牌加密，防SQL注入</li>
+<li><strong>性能优化</strong>：连接池管理，查询优化</li>
+<li><strong>代码规范</strong>：统一编码风格，注释完善</li>
+</ol>
+<p>此系统后端设计遵循高内聚低耦合原则，良好的分层设计和模块化架构确保了系统的可维护性和可扩展性，为前端提供了稳定高效的API支持。</p>
+<p>系统与小程序端的数据对接主要通过RESTful API实现，主要体现在以下几个方面：</p>
+<ol>
+<li><p><strong>统一API接口</strong>：后端为小程序提供标准化的REST接口，所有接口遵循<code>/api/资源名称</code>的格式，如座位预约、查询等操作</p>
+</li>
+<li><p><strong>跨域支持</strong>：在<code>MvcConfiguration</code>中配置了CORS跨域支持，允许小程序端安全地请求后端接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> &#123;</span><br><span class="line">    registry.addMapping(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">            .allowedOriginPatterns(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .allowedMethods(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .allowedHeaders(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .maxAge(<span class="number">3600</span>)</span><br><span class="line">            .allowCredentials(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>JWT认证机制</strong>：小程序用户登录后获取JWT令牌，后续请求携带此令牌进行身份验证，实现无状态会话管理</p>
+</li>
+<li><p><strong>专用API</strong>：系统包含<code>wxapi</code>目录，专门处理小程序特有的业务逻辑和数据交互</p>
+</li>
+<li><p><strong>统一响应格式</strong>：后端返回的数据都通过<code>ResultVo</code>和<code>ResultUtils</code>封装，确保小程序端能够统一解析结果</p>
+</li>
+<li><p><strong>JSON数据交换</strong>：系统使用FastJSON和Jackson处理数据序列化，支持小程序与后端之间的JSON格式数据交换</p>
+</li>
+</ol>
+<p>这种设计使小程序端能够通过HTTP请求直接调用后端API获取数据或提交操作，实现了前后端完全分离的架构。</p>
+<h1 id="小程序与后台数据同步分析"><a href="#小程序与后台数据同步分析" class="headerlink" title="小程序与后台数据同步分析"></a>小程序与后台数据同步分析</h1><p>通过分析代码结构和现有实现，该系统主要采用以下几种机制确保小程序与后台数据同步更新：</p>
+<h2 id="1-基于RESTful-API的请求-响应模式"><a href="#1-基于RESTful-API的请求-响应模式" class="headerlink" title="1. 基于RESTful API的请求-响应模式"></a>1. 基于RESTful API的请求-响应模式</h2><p>系统采用标准的RESTful API通信模式，通过以下方式确保数据同步：</p>
+<ul>
+<li><strong>专用的wxapi控制器</strong>：<code>web/wxapi</code>目录下包含专门为小程序提供接口的控制器</li>
+<li><strong>统一的响应格式</strong>：<code>ResultVo</code>和<code>ResultUtils</code>确保所有API返回标准格式数据</li>
+<li><strong>状态码管理</strong>：<code>StatusCode</code>类定义统一状态码，方便小程序识别处理结果</li>
+</ul>
+<h2 id="2-认证与会话管理"><a href="#2-认证与会话管理" class="headerlink" title="2. 认证与会话管理"></a>2. 认证与会话管理</h2><ul>
+<li><strong>JWT令牌机制</strong>：<code>JwtUtils</code>实现基于JWT的身份验证，小程序通过令牌维持会话<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">generateToken</span><span class="params">(Map&lt;String, String&gt; map)</span> &#123;</span><br><span class="line">    <span class="comment">//设置令牌的过期时间</span></span><br><span class="line">    <span class="type">Calendar</span> <span class="variable">instance</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">    <span class="comment">//设置失效时间</span></span><br><span class="line">    instance.add(Calendar.MINUTE, expiration);</span><br><span class="line">    <span class="comment">//...生成token代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-数据刷新策略"><a href="#3-数据刷新策略" class="headerlink" title="3. 数据刷新策略"></a>3. 数据刷新策略</h2><p>系统没有实现WebSocket等推送机制，主要采用以下策略确保数据同步：</p>
+<ol>
+<li><strong>客户端主动刷新</strong>：小程序需要在关键节点（如页面加载、下拉刷新等）主动获取最新数据</li>
+<li><strong>缓存控制</strong>：避免过长时间缓存关键业务数据</li>
+<li><strong>关键操作后强制刷新</strong>：预约、签到等关键操作后，强制刷新相关页面数据</li>
+</ol>
+<h2 id="4-跨域配置"><a href="#4-跨域配置" class="headerlink" title="4. 跨域配置"></a>4. 跨域配置</h2><p><code>MvcConfiguration</code>配置了跨域支持，确保小程序可正常调用接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> &#123;</span><br><span class="line">    registry.addMapping(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">            .allowedOriginPatterns(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .allowedMethods(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .allowedHeaders(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">            .maxAge(<span class="number">3600</span>)</span><br><span class="line">            .allowCredentials(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-数据一致性保障"><a href="#5-数据一致性保障" class="headerlink" title="5. 数据一致性保障"></a>5. 数据一致性保障</h2><ul>
+<li><strong>事务管理</strong>：关键业务操作使用事务保证数据一致性</li>
+<li><strong>乐观锁</strong>：通过MyBatis-Plus的乐观锁机制防止并发修改冲突</li>
+<li><strong>版本控制</strong>：关键资源使用版本号机制，确保小程序获取最新数据</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>当前系统主要依靠小程序主动拉取数据的方式确保同步，没有实现实时推送机制。这种方案在大多数场景下能够满足座位预约系统的业务需求，但对于高并发场景下的座位抢占可能存在一定延迟。</p>
+<p>如需进一步优化，可考虑：</p>
+<ol>
+<li>引入WebSocket实现座位状态实时推送</li>
+<li>增加消息队列处理高并发场景</li>
+<li>实现缓存过期策略，针对热点数据优化刷新频率</li>
+</ol>
+<h1 id="毕业设计答辩问题与简要回答"><a href="#毕业设计答辩问题与简要回答" class="headerlink" title="毕业设计答辩问题与简要回答"></a>毕业设计答辩问题与简要回答</h1><h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p><strong>Q: 为何选择多模块架构？</strong><br>A: 多模块实现了关注点分离，common模块封装通用功能，web模块专注业务逻辑，提高了代码复用性和可维护性，便于团队协作和功能扩展。</p>
+<p><strong>Q: RBAC如何实现？</strong><br>A: 通过sys_user、sys_role、sys_menu、sys_user_role、sys_role_menu表实现，用户关联角色，角色关联菜单权限，登录后动态加载权限菜单，实现细粒度控制。</p>
+<p><strong>Q: 如何处理并发预约？</strong><br>A: 使用数据库事务和乐观锁机制，在select_seat服务中加入状态检查和行级锁，避免超卖，同时利用MyBatis-Plus的version实现冲突检测。</p>
+<h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><p><strong>Q: 为何选择JWT？</strong><br>A: JWT实现无状态认证，降低服务器存储压力，适合分布式系统，支持跨域请求，且携带用户信息，提高了系统响应速度。</p>
+<p><strong>Q: MyBatis-Plus如何处理复杂查询？</strong><br>A: 对于简单CRUD使用内置方法，复杂查询通过自定义SQL+XML映射实现，如预约查询关联了学生、座位、房间多表，使用动态SQL构建查询条件。</p>
+<p><strong>Q: 系统实现了哪些AOP？</strong><br>A: 实现了日志切面记录操作日志，全局异常处理统一响应格式，以及权限校验切面检查接口访问权限。</p>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><p><strong>Q: 防护措施？</strong><br>A: 参数绑定防SQL注入，输入验证防XSS，Spring Security过滤链保护接口，JWT令牌认证授权，自定义安全配置拦截非法请求。</p>
+<p><strong>Q: 密码如何存储？</strong><br>A: 使用BCryptPasswordEncoder加密存储，采用盐值哈希算法，即使数据库泄露也无法逆向解密，每次加密结果不同增加安全性。</p>
+<p><strong>Q: API安全保障？</strong><br>A: JWT令牌验证身份，接口权限校验，敏感数据脱敏，HTTPS传输加密，并设置令牌有效期和刷新机制。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p><strong>Q: 索引设计？</strong><br>A: 在主键、外键、查询条件字段建立索引，如学生ID、预约时间、座位状态等，复合索引优化多条件查询，避免索引失效考虑了字段选择性。</p>
+<p><strong>Q: 是否使用缓存？</strong><br>A: 公告、自习室布局等静态数据使用本地缓存，热门座位信息考虑引入Redis缓存，减轻数据库压力。</p>
+<p><strong>Q: 分页效率处理？</strong><br>A: 采用MyBatis-Plus分页插件，物理分页减少数据传输，针对大数据量查询优化SQL，SELECT指定必要字段，避免全表扫描。</p>
+<h2 id="特色创新"><a href="#特色创新" class="headerlink" title="特色创新"></a>特色创新</h2><p><strong>Q: 技术创新点？</strong><br>A: 集成了签到签退机制，基于状态流转的座位预约系统，实现了细粒度的时间段预约，支持空间可视化选座。</p>
+<p><strong>Q: 预约算法如何实现？</strong><br>A: 基于时间段重叠检测算法，优化冲突验证速度，引入预约优先级机制保证特殊人群需求，实现公平性的同时提高座位利用率。</p>
+<p><strong>Q: 为何不用WebSocket？</strong><br>A: 考虑成本效益比，座位状态变化频率不高，采用定时刷新+关键节点主动拉取策略，降低服务器负载，减少长连接维护开销。</p>
+<h2 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h2><p><strong>Q: 异常处理与日志？</strong><br>A: 全局异常处理器捕获异常并统一返回格式，分级日志记录（ERROR&#x2F;WARN&#x2F;INFO），关键业务操作记录详细日志便于追踪问题。</p>
+<p><strong>Q: 监控方案？</strong><br>A: Spring Boot Actuator暴露健康指标，Druid监控SQL执行，可集成Prometheus+Grafana实现可视化监控，记录API调用频率和响应时间。</p>
+<p><strong>Q: 最大技术挑战？</strong><br>A: 座位预约并发冲突处理，通过乐观锁和事务隔离解决，同时优化了查询性能，减少锁冲突概率。</p>
+<h2 id="扩展性与可维护性"><a href="#扩展性与可维护性" class="headerlink" title="扩展性与可维护性"></a>扩展性与可维护性</h2><p><strong>Q: 如何增加新模块？</strong><br>A: 遵循现有分层架构，新增实体类、Mapper、Service和Controller，复用基础组件，通过接口隔离降低耦合。</p>
+<p><strong>Q: 设计模式应用？</strong><br>A: 单例模式用于工具类，工厂模式创建复杂对象，策略模式实现不同类型预约规则，建造者模式构建查询条件，观察者模式处理状态变更。</p>
+<p><strong>Q: 应对用户量激增？</strong><br>A: 引入负载均衡分发请求，服务无状态化便于水平扩展，关键数据使用分布式缓存，考虑数据库读写分离和分库分表。</p>
+<p>基于你的后端代码结构，当面对”使用了什么算法”的问题时，可以这样回答：</p>
+<p>“在自习室座位预约系统中，我主要实现了以下几种算法：</p>
+<ol>
+<li><p><strong>JWT令牌加密与验证算法</strong>：在<code>JwtUtils</code>类中，使用HMAC256算法对用户信息进行加密，生成安全令牌，并实现了令牌过期验证和签名校验算法。</p>
+</li>
+<li><p><strong>座位预约冲突检测算法</strong>：在座位预约模块中，实现了基于时间区间重叠判断的冲突检测算法，确保同一时间段内座位不被重复预约。</p>
+</li>
+<li><p><strong>签到状态流转算法</strong>：在<code>back_out</code>模块实现了基于状态机的签到签退流转算法，包含正常签到、迟到签到、正常签退和漏签退等状态变化逻辑。</p>
+</li>
+<li><p><strong>多条件动态查询算法</strong>：使用MyBatis-Plus的Lambda表达式和动态SQL构建算法，如在<code>NoticeController</code>和<code>SysSuggestionController</code>中的列表查询方法。</p>
+</li>
+<li><p><strong>RBAC权限校验算法</strong>：基于角色的访问控制算法，通过角色、权限、菜单三层结构，动态计算用户可访问资源。</p>
+</li>
+<li><p><strong>图形验证码生成算法</strong>：在<code>ImageConfig</code>中实现了基于Kaptcha的图形验证码生成算法，包含干扰线、噪点和变形处理。</p>
+</li>
+</ol>
+<p>这些算法相互配合，保障了系统的安全性、并发控制和业务流程完整性。”</p>
+<p>基于您的代码结构，您的验证码实现是基于Kaptcha库的，而非GitHub接口。从<code>itmk-base-web/src/main/java/com/itmk/config/imagecode/ImageConfig.java</code>文件可以看出：</p>
+<p>您的验证码系统主要使用了com.github.penggle:kaptcha库（这是在GitHub托管的开源项目），通过Spring Bean配置实现。主要特点包括：</p>
+<ol>
+<li><strong>Producer配置</strong>：使用DefaultKaptcha生成验证码图片</li>
+<li><strong>验证码属性设置</strong>：<ul>
+<li>图片边框：无</li>
+<li>图片宽高：110px × 40px</li>
+<li>字体设置：Arial, 大小为28px</li>
+<li>字符间距：2px</li>
+<li>随机颜色：是</li>
+<li>文本字符数：4个字符</li>
+<li>干扰线：使用简单干扰线</li>
+<li>噪点：无</li>
+</ul>
+</li>
+</ol>
+<p>这个实现通过Spring Boot自动配置被集成到系统中，并在登录接口处被调用生成验证码，验证码图片数据会作为Base64字符串返回给前端，同时在服务端保存验证码值用于后续验证。</p>
+<p>在Spring Security过滤链中，系统会验证用户提交的验证码是否与服务端存储的一致，从而提供额外的安全保障，防止暴力破解和自动化攻击。</p>
+<h1 id="自习室座位预约系统后端介绍"><a href="#自习室座位预约系统后端介绍" class="headerlink" title="自习室座位预约系统后端介绍"></a>自习室座位预约系统后端介绍</h1><p>各位评委老师好，我的毕业设计是一套自习室座位预约系统，下面我简要介绍一下系统后端的设计与实现：</p>
+<h2 id="架构设计-1"><a href="#架构设计-1" class="headerlink" title="架构设计"></a>架构设计</h2><p>系统采用Spring Boot多模块架构，分为common基础模块和web业务模块，实现了关注点分离。整体遵循经典三层架构（Controller-Service-DAO），使用RESTful API与前端和小程序端交互。</p>
+<h2 id="核心技术栈-1"><a href="#核心技术栈-1" class="headerlink" title="核心技术栈"></a>核心技术栈</h2><ul>
+<li>Spring Boot 2.4.4作为基础框架</li>
+<li>MyBatis-Plus实现ORM层，简化数据访问</li>
+<li>Spring Security + JWT实现身份认证与权限控制</li>
+<li>Druid连接池优化数据库连接</li>
+<li>Kaptcha实现图形验证码</li>
+<li>Swagger自动生成API文档</li>
+</ul>
+<h2 id="主要功能模块"><a href="#主要功能模块" class="headerlink" title="主要功能模块"></a>主要功能模块</h2><p>系统核心模块包括：</p>
+<ol>
+<li>用户认证与权限管理模块</li>
+<li>自习室与座位管理</li>
+<li>预约服务与冲突检测</li>
+<li>签到签退管理</li>
+<li>公告系统</li>
+<li>意见反馈</li>
+<li>失物招领</li>
+</ol>
+<h2 id="安全与性能方面"><a href="#安全与性能方面" class="headerlink" title="安全与性能方面"></a>安全与性能方面</h2><p>在安全方面，实现了完整的RBAC权限控制，密码采用BCrypt加密，所有接口都经过权限验证。</p>
+<p>性能方面通过分页查询、索引优化和连接池配置，确保系统在高并发场景下仍能平稳运行。预约核心模块使用事务和乐观锁确保数据一致性。</p>
+<h2 id="亮点与创新"><a href="#亮点与创新" class="headerlink" title="亮点与创新"></a>亮点与创新</h2><ol>
+<li>模块化设计实现高内聚低耦合</li>
+<li>状态流转机制处理座位预约全生命周期</li>
+<li>基于JWT的无状态身份验证</li>
+<li>动态权限控制，保障系统安全</li>
+<li>小程序与管理端统一API架构</li>
+</ol>
+<p>系统已完成各项功能的实现和测试，能够满足学校自习室管理需求，提高资源利用率和管理效率。</p>
+<p>谢谢评委老师，欢迎提问。</p>
+<h1 id="图片上传机制及与小程序同步更新"><a href="#图片上传机制及与小程序同步更新" class="headerlink" title="图片上传机制及与小程序同步更新"></a>图片上传机制及与小程序同步更新</h1><p>图片上传机制是通过以下方式实现的：</p>
+<ol>
+<li><p><strong>组件封装</strong>：封装了<code>UploadImage.vue</code>组件，基于Element Plus的上传组件，统一处理图片上传逻辑</p>
+</li>
+<li><p><strong>前端预处理</strong>：</p>
+<ul>
+<li>上传前进行文件类型检查（仅允许图片格式）</li>
+<li>限制文件大小（小于3M）</li>
+<li>基于FormData构建上传数据</li>
+</ul>
+</li>
+<li><p><strong>统一API调用</strong>：</p>
+<ul>
+<li>通过<code>uploadImageApi</code>函数发送请求</li>
+<li>使用http模块的upload方法，设置特殊的content-type头</li>
+</ul>
+</li>
+<li><p><strong>跨平台同步原理</strong>：</p>
+<ul>
+<li>后端统一的文件存储服务，图片保存到共享存储空间</li>
+<li>返回可访问的URL路径，存储在数据库中</li>
+<li>前端和小程序都通过相同的API接口和访问路径获取图片</li>
+</ul>
+</li>
+<li><p><strong>返回数据处理</strong>：</p>
+<ul>
+<li>上传成功后获取图片URL，存入表单数据</li>
+<li>完整URL由BASE_API_IMG环境变量和后端返回路径拼接而成</li>
+</ul>
+</li>
+</ol>
+<p>这种设计使得无论是管理后台还是小程序端，对图片的操作都会立即同步，因为它们访问的是相同的存储空间和数据源。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">屿念</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%90%8E%E7%AB%AF/">http://example.com/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%90%8E%E7%AB%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%89%8D%E7%AB%AF/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2025/04/26/gruaduate/%E8%BD%AC%E6%8D%A22/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic.imgdb.cn/item/64f5edae661c6c8e5466f9a8.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">屿念</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2776484697@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">一只蝴蝶有多鲜艳 能不能飞跃过猜忌和冷漠世界</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E4%B9%A0%E5%AE%A4%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">自习室座位预约系统后端技术详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">1.2.</span> <span class="toc-text">核心技术栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.</span> <span class="toc-text">模块设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97-itmk-base-common"><span class="toc-number">1.3.1.</span> <span class="toc-text">通用模块(itmk-base-common)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E5%BA%94%E7%94%A8%E6%A8%A1%E5%9D%97-itmk-base-web"><span class="toc-number">1.3.2.</span> <span class="toc-text">Web应用模块(itmk-base-web)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E4%BA%AE%E7%82%B9"><span class="toc-number">1.4.</span> <span class="toc-text">功能亮点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">安全认证机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E5%B1%82%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.2.</span> <span class="toc-text">数据访问层设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B8%8E%E6%97%A5%E5%BF%97"><span class="toc-number">1.4.3.</span> <span class="toc-text">异常处理与日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RESTful-API%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.4.</span> <span class="toc-text">RESTful API设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E7%BA%A6%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-number">1.4.5.</span> <span class="toc-text">预约核心功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%89%A9%E5%B1%95%E6%80%A7"><span class="toc-number">1.4.6.</span> <span class="toc-text">系统扩展性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%95%B4%E5%90%88%E4%BA%AE%E7%82%B9"><span class="toc-number">1.5.</span> <span class="toc-text">技术整合亮点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8E%E5%90%8E%E5%8F%B0%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">小程序与后台数据同步分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E4%BA%8ERESTful-API%E7%9A%84%E8%AF%B7%E6%B1%82-%E5%93%8D%E5%BA%94%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">1. 基于RESTful API的请求-响应模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%A4%E8%AF%81%E4%B8%8E%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">2. 认证与会话管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0%E7%AD%96%E7%95%A5"><span class="toc-number">2.3.</span> <span class="toc-text">3. 数据刷新策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">2.4.</span> <span class="toc-text">4. 跨域配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E4%BF%9D%E9%9A%9C"><span class="toc-number">2.5.</span> <span class="toc-text">5. 数据一致性保障</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.6.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E7%AD%94%E8%BE%A9%E9%97%AE%E9%A2%98%E4%B8%8E%E7%AE%80%E8%A6%81%E5%9B%9E%E7%AD%94"><span class="toc-number">3.</span> <span class="toc-text">毕业设计答辩问题与简要回答</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">架构设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.2.</span> <span class="toc-text">技术实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-number">3.3.</span> <span class="toc-text">安全性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">3.4.</span> <span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E8%89%B2%E5%88%9B%E6%96%B0"><span class="toc-number">3.5.</span> <span class="toc-text">特色创新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5"><span class="toc-number">3.6.</span> <span class="toc-text">工程实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%80%A7%E4%B8%8E%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="toc-number">3.7.</span> <span class="toc-text">扩展性与可维护性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E4%B9%A0%E5%AE%A4%E5%BA%A7%E4%BD%8D%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%90%8E%E7%AB%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.</span> <span class="toc-text">自习室座位预约系统后端介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-1"><span class="toc-number">4.1.</span> <span class="toc-text">架构设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E6%A0%88-1"><span class="toc-number">4.2.</span> <span class="toc-text">核心技术栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">4.3.</span> <span class="toc-text">主要功能模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E4%B8%8E%E6%80%A7%E8%83%BD%E6%96%B9%E9%9D%A2"><span class="toc-number">4.4.</span> <span class="toc-text">安全与性能方面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%AE%E7%82%B9%E4%B8%8E%E5%88%9B%E6%96%B0"><span class="toc-number">4.5.</span> <span class="toc-text">亮点与创新</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%9C%BA%E5%88%B6%E5%8F%8A%E4%B8%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%90%8C%E6%AD%A5%E6%9B%B4%E6%96%B0"><span class="toc-number">5.</span> <span class="toc-text">图片上传机制及与小程序同步更新</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%89%8D%E7%AB%AF/" title="No title">No title</a><time datetime="2025-04-27T14:19:48.382Z" title="Created 2025-04-27 22:19:48">2025-04-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/27/gruaduate/%E7%AD%94%E8%BE%A9%E5%90%8E%E7%AB%AF/" title="No title">No title</a><time datetime="2025-04-27T14:09:07.534Z" title="Created 2025-04-27 22:09:07">2025-04-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/26/gruaduate/%E8%BD%AC%E6%8D%A22/" title="No title">No title</a><time datetime="2025-04-26T07:37:05.384Z" title="Created 2025-04-26 15:37:05">2025-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/24/gruaduate/%E8%BD%AC%E6%8D%A2/" title="No title">No title</a><time datetime="2025-04-24T12:20:44.720Z" title="Created 2025-04-24 20:20:44">2025-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/18/gruaduate/418%E7%AC%94%E8%AE%B0/" title="No title">No title</a><time datetime="2025-04-18T08:12:44.181Z" title="Created 2025-04-18 16:12:44">2025-04-18</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.imgtg.com/2023/07/30/OisM0L.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 屿念</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
